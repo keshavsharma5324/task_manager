@@ -75,3 +75,37 @@ Ownership verification: User-task binding checks
 Auth-gated operations: Mandatory authentication
 
 Firebase Rules: Server-side data protection
+
+Running Flutter Applications - 
+4 Simple Steps to Launch
+
+1. Set Up Environment
+
+Install Flutter SDK & Dart
+
+Configure Android Studio/VSCode
+
+Set up device (emulator or physical device)
+
+2. Get Dependencies
+
+bash
+flutter pub get
+
+3. Run the App
+
+bash
+flutter run
+
+4. Common Hotkeys
+
+r: Hot reload
+
+R: Full restart
+
+h: Help menu
+
+q: Quit
+
+
+
