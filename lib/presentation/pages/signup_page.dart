@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager/core/utils/constants.dart';
 import 'package:task_manager/presentation/controllers/auth_controller.dart';
 
 class SignupPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sign Up')),
+      appBar: AppBar(title: Text('Sign Up', style: Constants.headerTextStyle,)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -64,6 +65,11 @@ class SignupPage extends StatelessWidget {
               TextButton(
                 onPressed: () => Get.back(),
                 child: Text('Already have an account? Login'),
+              ),
+              Spacer(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text('Task Manager', style: Constants.headerTextStyle),
               ),
             ],
           ),

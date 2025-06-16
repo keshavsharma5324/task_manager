@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Task Manager',
+      debugShowCheckedModeBanner: false,
       initialBinding: AppBindings(),
       theme: ThemeData(
         primarySwatch: Colors.blue,

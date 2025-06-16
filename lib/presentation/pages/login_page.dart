@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager/core/utils/constants.dart';
 import 'package:task_manager/presentation/controllers/auth_controller.dart';
-import 'package:task_manager/presentation/controllers/task_controller.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -9,10 +9,12 @@ class LoginPage extends StatelessWidget {
   final _passwordController = TextEditingController();
   final AuthController authController = Get.find();
 
+  LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(title: Text('Login', style: Constants.headerTextStyle)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -23,8 +25,9 @@ class LoginPage extends StatelessWidget {
                 controller: _emailController,
                 decoration: InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value == null || value.isEmpty)
+                  if (value == null || value.isEmpty) {
                     return 'Please enter email';
+                  }
                   if (!GetUtils.isEmail(value)) return 'Invalid email';
                   return null;
                 },
@@ -34,12 +37,14 @@ class LoginPage extends StatelessWidget {
                 decoration: InputDecoration(labelText: 'Password'),
                 obscureText: true,
                 validator: (value) {
-                  if (value == null || value.isEmpty)
+                  if (value == null || value.isEmpty) {
                     return 'Please enter password';
+                  }
                   if (value.length < 6) return 'Password too short';
                   return null;
                 },
               ),
+              SizedBox(height: 30),
               Obx(
                 () =>
                     authController.isLoading.value
@@ -59,6 +64,11 @@ class LoginPage extends StatelessWidget {
               TextButton(
                 onPressed: () => Get.toNamed('/signup'),
                 child: Text('Create Account'),
+              ),
+              Spacer(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text('Task Manager', style: Constants.headerTextStyle),
               ),
             ],
           ),

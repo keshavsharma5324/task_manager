@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager/core/utils/constants.dart';
 import 'package:task_manager/presentation/controllers/task_controller.dart';
 
 class AddTaskPage extends StatelessWidget {
@@ -11,7 +12,7 @@ class AddTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Task')),
+      appBar: AppBar(title: Text('Add Task', style: Constants.headerTextStyle)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -22,7 +23,9 @@ class AddTaskPage extends StatelessWidget {
                 controller: _titleController,
                 decoration: InputDecoration(labelText: 'Title'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter title';
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter title';
+                  }
                   return null;
                 },
               ),
